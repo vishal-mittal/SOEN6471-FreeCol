@@ -589,4 +589,18 @@ public class MapTest extends FreeColTestCase {
         assertNotNull("From-galleon path should have a drop node.",
             path.getTransportDropNode());
     }
+    public void testCopy() {
+        Game game = getStandardGame();
+        game.setMap(getTestMap());
+        Map map = game.getMap();
+        Colony colony = getStandardColony();
+        Tile tile = colony.getTile();
+
+        Map otherMap= map.copy(game);
+        assertNotNull(otherMap);
+        assertFalse(otherMap == map);
+        assertEquals(otherMap.getId(), map.getId());
+    
+    
+    }
 }

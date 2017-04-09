@@ -445,4 +445,14 @@ public class ColonyTest extends FreeColTestCase {
         assertEquals(churchUpkeep + lumberMillUpkeep, colony.getUpkeep());
     }
 
+    public void testCopyColony() {
+        Game game = getGame();
+        game.setMap(getTestMap(true));
+        Colony colony = getStandardColony(2);
+        Player player = colony.getOwner();
+
+        Colony copied = colony.copyColony();
+        assertNotNull(copied);
+        assertFalse(colony == copied);
+    }
 }
