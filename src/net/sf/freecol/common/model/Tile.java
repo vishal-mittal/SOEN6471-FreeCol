@@ -2118,4 +2118,16 @@ public final class Tile extends UnitLocation implements Named, Ownable {
     public static String getXMLElementTagName() {
         return "tile";
     }
+    
+    public Tile getTileToCache() {
+        Tile tile = this.copy(getGame());
+        tile.clearUnitList();
+        Colony colony = getColony();
+        if (colony != null) {
+            tile.getColony()
+                .setDisplayUnitCount(Math.min(1, colony.getUnitCount()));
+        }
+        return tile;
+}
+    
 }

@@ -2303,4 +2303,7 @@ public class Map extends FreeColGameObject implements Location {
     public static String getXMLElementTagName() {
         return "map";
     }
+
+
+	
 }
